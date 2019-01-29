@@ -1,0 +1,2 @@
+# AssemblyPacker
+Упаковщик .Net приложений 
