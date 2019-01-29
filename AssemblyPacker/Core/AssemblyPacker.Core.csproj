@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{242D7C22-BC60-478C-9B69-5C6B6F5577B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Twidlle.AssemblyPacker.Core</RootNamespace>
+    <AssemblyName>Twidlle.AssemblyPacker.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>7.3</LangVersion>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>7.3</LangVersion>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppExploring.cs" />
+    <EmbeddedResource Include="EmbeddedResources\AssemblyInfo.cs" />
+    <Compile Include="PackageInfo.cs" />
+    <Compile Include="Packing.cs" />
+    <Compile Include="Compiling.cs" />
+    <Compile Include="Scripting.cs" />
+    <Compile Include="AppInfo.cs" />
+    <EmbeddedResource Include="EmbeddedResources\Installer.cs">
+      <SubType>Component</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmbeddedResources\Package.cs" />
+    <EmbeddedResource Include="EmbeddedResources\Program.cs" />
+    <Compile Include="Packer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Infrastructure\Base\Infrastructure.Base.csproj">
+      <Project>{30927c96-7054-49e3-8a35-90c3aed782bf}</Project>
+      <Name>Infrastructure.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IconExtractor\AssemblyPacker.IconExtractor.csproj">
+      <Project>{45823410-176b-4e6d-9ecf-40572a9a7010}</Project>
+      <Name>AssemblyPacker.IconExtractor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interface\AssemblyPacker.Interface.csproj">
+      <Project>{33c938ce-853f-4777-b38a-2f5b9dd82f4d}</Project>
+      <Name>AssemblyPacker.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
